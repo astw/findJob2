@@ -9,6 +9,7 @@
   "author": "SHuhao Wang",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^2.3.11",
     "express": "^4.10.3",
     "jade": "^1.7.0",
     "mongoose": "^3.8.19"
