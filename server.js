@@ -1,5 +1,4 @@
-var express = require("express");
-var mongoose = require("mongoose");
+var express = require("express"); 
 var jobModel = require("./models/Job");
 
 var jobsData = require("./jobs-data.js");

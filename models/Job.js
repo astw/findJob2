@@ -1,5 +1,4 @@
-var mongoose = require("mongoose");
-var Promise = require("bluebird");
+var mongoose = require("mongoose"); 
 
 
 var jobSchema = mongoose.Schema({
@@ -12,4 +11,4 @@ var jobSchema = mongoose.Schema({
 
 });
 
- mongoose.model("Job", jobSchema);
+mongoose.model("Job", jobSchema);
