@@ -1,20 +1,30 @@
 var expect = require("chai").expect;
-var request = require("supertest"); 
-var express = require("express"); 
+var request = require("supertest");
+var express = require("express");
+var Promise = require("bluebird");
 
 var app = new express();
 
-var dataSaveJob; 
+var dataSaveJob;
 
 // this is the db mock
 var db = {
-    saveJob: function(job){
-        dataSaveJob = job; 
-    }
+    
+    findJobs: function() {
+       //  return ["hi"]; 
+       return new Promise(function(resolve, reject){
+           resolve(['hi']);
+       })
+    },
+    
+    saveJob: function(job) {
+        dataSaveJob = job;
+    },
+
+ 
 }
 
-var jobService = require("../jobs-service")(db, app);   // db, and app are is injected into the service;
-
+var jobService = require("../jobs-service")(db, app); // db, and app are is injected into the service;
 
 
 
@@ -29,7 +39,7 @@ describe("save jobs", function() {
     it("should validate that description is less than 250 characters ")
 
 
- 
+
     var newJob = {
         title: "Cook",
         description: "ou will be making bagels"
@@ -38,12 +48,12 @@ describe("save jobs", function() {
 
     it("should pass the job to the database save", function(done) {
 
-        request(app).post("/api/jobs").send(newJob).end(function(err,res){ 
-            
-               expect(dataSaveJob).to.deep.equal(newJob);
-               done();
-               
-        }); 
+        request(app).post("/api/jobs").send(newJob).end(function(err, res) {
+
+            expect(dataSaveJob).to.deep.equal(newJob);
+            done();
+
+        });
 
     });
 
@@ -55,7 +65,20 @@ describe("save jobs", function() {
 
 
 
+});
 
 
+describe("get jobs", function() {
+
+    it("get should give me a json list of jobs", function(done) {
+
+        request(app).get("/api/jobs")
+            .expect("Content-Type", /json/)
+            .end(function(err, res) {
+                
+                expect(res.body).to.be.a("Array");
+                done();
+            });
+    })
 
 });
