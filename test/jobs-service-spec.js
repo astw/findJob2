@@ -11,7 +11,7 @@ var dataSaveJob;
 var db = {
     
     findJobs: function() {
-       //  return ["hi"]; 
+       return ["hi"]; 
        return new Promise(function(resolve, reject){
            resolve(['hi']);
        })
@@ -37,7 +37,6 @@ describe("save jobs", function() {
     it("should validate that description is greateer than 4 characters ")
 
     it("should validate that description is less than 250 characters ")
-
 
 
     var newJob = {
@@ -75,7 +74,7 @@ describe("get jobs", function() {
         request(app).get("/api/jobs")
             .expect("Content-Type", /json/)
             .end(function(err, res) {
-                
+                console.log(res);
                 expect(res.body).to.be.a("Array");
                 done();
             });
