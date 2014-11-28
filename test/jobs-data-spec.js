@@ -7,7 +7,7 @@ var jobsData = require("../jobs-data.js");
 function resetJob() {
     return new Promise(function(resolve, reject) {
         mongoose.connection.collections["jobs"].drop(resolve, reject);
-        console.log("database is droped")
+        console.log("database is droped!")
     });
 }
 
@@ -16,7 +16,7 @@ describe("get jobs", function() {
     var jobs ;
     
     before(function(done){
-         jobsData.connectDb("mongodb://localhost/jobfinder")
+         jobsData.connectDb("mongodb://localhost-invalid/jobfinder")
             .then(resetJob())
             .then(jobsData.seedJobs)
             .then(jobsData.findJobs)
