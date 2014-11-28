@@ -11,7 +11,7 @@ var dataSaveJob;
 var db = {
     
     findJobs: function() {
-       return ["hi"]; 
+       //return ["hi"]; 
        return new Promise(function(resolve, reject){
            resolve(['hi']);
        })

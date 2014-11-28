@@ -21,8 +21,11 @@ var jobs = [
     }, {
         title: "Project Manager",
         description: "Communication skills "
-    }
-
+    },
+    {
+        title: "Java Spring MVC develper",
+        description: "internet developer "
+    },
 ];
 
 exports.connectDb = Promise.promisify(mongoose.connect, mongoose);
