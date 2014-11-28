@@ -28,10 +28,12 @@ app.get("*", function(req, res) {
 jobsData.connectDb("mongodb://nodedev:nodedev@ds053090.mongolab.com:53090/jobfinder")
     .then(function() {
         console.log("connected to mongodb ok");
-        jobModel.seedJobs();
+        jobsData.seedJobs();
     });
  
 
-app.listen(process.env.PORT, process.env.IP);
+var port = process.env.PORT || 3000
 
-console.log("server is listen.....");
+app.listen(port, process.env.IP);
+
+console.log("server is listen at "+ port + ".....");
