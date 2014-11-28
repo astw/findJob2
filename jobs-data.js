@@ -33,6 +33,7 @@ exports.seedJobs = function() {
     return findJobs({}).then(function(collection) {
         if (collection.length === 0) {
             return Promise.map(jobs, function(job) {
+                 console.log("seeding.. data....");
                 return createJob(job);
             })
         }
