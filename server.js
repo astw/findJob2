@@ -1,4 +1,5 @@
 var express = require("express"); 
+
 var jobModel = require("./models/Job");
 
 var jobsData = require("./jobs-data.js");
@@ -18,7 +19,7 @@ app.get("*", function(req, res) {
 });
 
 
-mongoose.connect("mongodb://localhost/jobfinder");
+//mongoose.connect("mongodb://localhost/jobfinder");
 jobsData.connectDb("mongodb://nodedev:nodedev@ds053090.mongolab.com:53090/jobfinder")
     .then(function() {
         console.log("connected to mongodb ok");

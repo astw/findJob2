@@ -24,7 +24,7 @@ var db = {
  
 }
 
-var jobService = require("../jobs-service")(db, app); // db, and app are is injected into the service;
+var jobService = require("../../jobs-service")(db, app); // db, and app are is injected into the service;
 
 
 

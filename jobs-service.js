@@ -18,7 +18,6 @@ module.exports = function(db, app) {
      
 
     app.post("/api/jobs", function(req, res) {
-        console.log(req.body);
         db.saveJob(req.body);
         res.end();
     });
